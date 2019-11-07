@@ -9,15 +9,15 @@ class Search extends React.Component {
 
     this.state = {
       value: ''
+
     };
+
   }
 
   handleInputChange(e) {
     // this.props.getYouTubeVideos(e.target.value);
     this.setState({
       value: e.target.value
-    }, () => {
-      store.dispatch(handleVideoSearch(this.state.value));
     });
   }
 
@@ -30,7 +30,9 @@ class Search extends React.Component {
           value={this.state.value}
           onChange={this.handleInputChange.bind(this)}
         />
-        <button className="btn hidden-sm-down">
+        <button className="btn hidden-sm-down" onClick={() => {
+          store.dispatch(handleVideoSearch(this.state.value));
+        }}>
           <span className="glyphicon glyphicon-search"></span>
         </button>
       </div>

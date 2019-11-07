@@ -1,9 +1,9 @@
-var searchYouTube = ({key, query, max = 5}, callback) => {
+var searchYouTube = (key, query, callback) => {
   $.get('https://www.googleapis.com/youtube/v3/search', {
     part: 'snippet',
     key: key,
     q: query,
-    maxResults: max,
+    maxResults: 5,
     type: 'video',
     videoEmbeddable: 'true'
   })
